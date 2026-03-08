@@ -113,8 +113,8 @@ end
 local HttpService = getService('HttpService')
 local RunService = getService('RunService')
 
--- Environment Check
-local useStudio = RunService:IsStudio() or false
+local success, result = pcall(function() return RunService:IsStudio() end)
+local useStudio = success and result or false
 
 local settingsCreated = false
 local settingsInitialized = false -- Whether the UI elements in the settings page have been set to the proper values
